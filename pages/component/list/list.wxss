@@ -1,0 +1,38 @@
+.page {
+  background: #f1f1f1;
+}
+
+.switch-sex::after {
+  content: "\e716";
+}
+
+.switch-sex::before {
+  content: "\e7a9";
+}
+
+.switch-music::after {
+  content: "\e66a";
+}
+
+.switch-music::before {
+  content: "\e6db";
+}
+.duihao{
+  background-color:green;
+  border:1px solid green;
+  border-radius:50%;
+  width:35rpx;
+  height:35rpx;
+  line-height:35rpx;
+  display:inline-block;
+}
+.duihao:after{    
+
+  content: "\e645";
+  font-family: 'iconfont';
+  color: #fff;
+  position: relative;
+  left: 1px;
+  transform: translateY(0rpx);
+
+}

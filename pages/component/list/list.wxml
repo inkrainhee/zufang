@@ -1,0 +1,66 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-pink" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='icon-back'></text> 轮播图
+    </navigator>
+  </view>
+</view>
+<swiper class="card-swiper square-dot" indicator-dots="false" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{tower}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class='bg-img shadow-blur text-white' style="background-image:url({{item.img}})">
+    
+      <text style='position:absolute;bottom:25px;left:6px;'>华府骏苑{{index+1}}</text>
+      <text style='position:absolute;bottom:4px;left:6px;'>蜀山区-望潜交口</text>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='icon-title text-orange'></text>房源选择
+    </view>
+</view>
+
+<view class="padding bg-white solid-bottom">
+  <view class="flex">
+    <view class='flex-sub bg-orange padding-sm margin-xs text-white text-center'>一室一厅</view>
+    <view class='flex-sub bg-orange padding-sm margin-xs text-white text-center'>两室一厅</view>
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top solid-bottom">
+    <view class='action'>
+      <text class='icon-title text-orange'></text>房源推荐
+    </view>
+</view>
+<scroll-view scroll-x class="bg-white nav">
+  <view class='flex text-center'>
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.title}}
+    </view>
+  </view>
+</scroll-view>
+
+<view class="bg-white padding">
+
+    <view class="grid col-4 grid-square" wx:for="{{room}}" wx:for-index="inx" wx:key="inx" bindtap='navigateTo' data-id="{{item.id}}" >
+      <view class="bg-cyan bg-img " style="background-image:url({{item.img}});width:30%" ></view>
+      <view class="col-1" style='width:60%;overflow: hidden;'>
+        <view class="bg-white fl" >{{item.house_name}}</view>
+        <view class="bg-white fr text-orange" >{{item.price}} <text >元/月</text></view>
+        <view class="col-1" style='width:100%;overflow: hidden;'>
+          <view class="bg-white" style='padding:10px 0 0 0' ><text wx:for="{{item.property}}" wx:for-item="itemName" wx:for-index="idx" wx:key="idx">{{itemName}}<text wx:if="{{item.property.length-1!=idx}}"> | </text></text></view>
+            <view class="col-1" style='width:100%;overflow: hidden;'>
+              <view class="bg-white text-green" style='padding:10px 0 0 0' >
+                  <text decode="{{true}}"  wx:for="{{item.tags}}" wx:for-item="itemS" wx:key="ids"><text class="duihao" ></text> {{ itemS }} &nbsp;</text>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+    
+</view>
+
+
+
+
+
